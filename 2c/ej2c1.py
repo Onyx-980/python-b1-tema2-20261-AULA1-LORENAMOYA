@@ -50,8 +50,16 @@ Exemple:
 
 
 def convert_to_integer(string):
-    # Write here your code
-    pass
+    # Intentem convertir la cadena a un enter
+    try:
+        return int(string)
+    # Si es produeix un ValueError, retornem un missatge d'error
+    except ValueError:
+        return "The string cannot be converted to an integer"
+    # Si es produeix qualsevol altra excepció, retornem un missatge d'error inesperat
+    except Exception as e:
+        return f"An unexpected error has occurred: {e}" 
+
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
