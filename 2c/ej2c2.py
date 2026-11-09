@@ -55,12 +55,19 @@ Exemple:
 
 
 def get_element_from_list(items_list, index) -> str:
-    # Write here your code
-    pass
+    # Intentem retornar l'element de la llista corresponent a l'índex
+    try:
+        return items_list[index]
+    # Si l'índex està fora del rang de la llista, retornem un missatge
+    except IndexError:
+        return "The specified index is out of the items_list's range"
+    # Si es produeix qualsevol altra excepció, retornem un missatge d'error
+    except Exception as e:
+        return f"An unexpected error has occurred: {e}"
 
 
-# Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
-# Si vols provar el teu codi, descomenta les línies següents i executa l'script
-
-# print(get_element_from_list(["Pencil", "Pen", "Eraser", "Notebook", "Ruler"], 3))
-# print(get_element_from_list(["Pencil", "Pen", "Eraser", "Notebook", "Ruler"], 5))
+# Si vols provar el teu codi, descomenta les línies següents
+# i executa l'script
+items = ["Pencil", "Pen", "Eraser", "Notebook", "Ruler"]
+# print(get_element_from_list(items, 3))
+# print(get_element_from_list(items, 5))
