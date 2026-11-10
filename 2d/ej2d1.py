@@ -49,10 +49,25 @@ Exemple:
 
 
 def kg_to_lb(kg):
-    # Write here your code
-    pass
+    # Comprovem que el valor introduït sigui numèric
+    if not isinstance(kg, (int, float)):
+        raise TypeError("El valor ha de ser numèric")
+    # Comprovem que el valor sigui major que 0
+    if kg <= 0:
+        raise ValueError("El valor ha de ser major que 0")
+    # Convertim els quilograms a lliures i arrodonim a 2 decimals
+    return round(kg * 2.20462, 2)
 
 
-# Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
-# Si vols provar el teu codi, descomenta les línies següents i executa l'script
-#print(kg_to_lb(50))
+# Nom que demana l'enunciat
+convert_kg_to_lb = kg_to_lb
+
+
+# Si vols provar el teu codi, descomenta les línies següents
+# i executa l'script
+print(kg_to_lb(50))
+for value in (0, 'abc'):
+    try:
+        kg_to_lb(value)
+    except (ValueError, TypeError) as e:
+        print(type(e).__name__)
