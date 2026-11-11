@@ -67,13 +67,24 @@ Exemple:
 
 
 def calculate_max_and_min(list_numbers):
-    # Write here your code
-    pass
+    # comprovem que la llista no estigui buida
+    if not list_numbers:
+        raise ValueError("La llista no pot estar buida")
+    max_num = float('-inf')
+    min_num = float('inf')
+    for num in list_numbers:
+        if not isinstance(num, (int, float)):
+            raise TypeError("La llista només pot contenir números")
+        if num > max_num:
+            max_num = num
+            print("Greater:", max_num)
+        if num < min_num:
+            min_num = num
+            print("Lesser:", min_num)
+    return min_num, max_num
 
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
 
-# print(
-#     "\nResult: ", calculate_max_and_min([10, 5.1, 0, -2, 31, 55, 70, -10, 200, -55.55])
-# )
+# print("Result: ", calculate_max_and_min([10, 5.1, 0, -2, 31, 55, 70, -10, 200, -55.55]))
